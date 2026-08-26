@@ -34,14 +34,10 @@ enemigos(mutantes, la_superficie).
 no_tiene(los_bunkeres, enemigos).
 requiere(los_bunkeres, llaves).
 
-nivel_peligro(las_cuevas, alto).
+nivel_peligro(las_cuevas, dia, alto).
+nivel_peligro(las_cuevas, noche, alto).
 nivel_peligro(la_superficie, dia, medio).
 nivel_peligro(la_superficie, noche, alto).
 
 se_encuentran(troncos, la_superficie).
 se_encuentran(piedras, la_superficie).
-
-
-
-
-

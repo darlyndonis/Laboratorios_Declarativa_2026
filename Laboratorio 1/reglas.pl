@@ -10,16 +10,16 @@ sobrevive(X) :-
 
 
 % Regla 2. determinar si un personaje puede entrar a una zona,
-% es decir, si tiene la edad suficiente y el nivel de peligro de la zona
+% es decir, un adulto puede entrar aunque la zona sea peligrosa y
+% un menor de edad solo puede entrar si la zona no tiene peligro alto.
 
 puede_entrar(X, Zona) :-
     edad(X, Edad),
-    ( nivel_peligro(Zona, Nivel)
-    ; nivel_peligro(Zona, _Momento, Nivel)
-    ),
+    nivel_peligro(Zona, _Momento, Nivel),
     ( Edad >= 18
     ; Nivel \== alto
     ).
+
 
 % Regla 3. determinar si una zona es segura para un personaje, es decir,
 % si el nivel de peligro de la zona no es alto o si no tiene enemigos
@@ -32,11 +32,11 @@ zona_segura(Zona, Momento) :-
 
 % Regla 4. determinar si un mutante (por ejemplo Virginia) puede
 % convertirse en aliado: su estado actual debe ser no_aliado, y
-% Eric debe contar con al menos una herramienta hacha o encendedor
+% el encuentro debe darse en una zona segura (los bunkeres) durante el día o la noche
 
 puede_ser_aliado(Personaje) :-
     mutante(Personaje),
     estado(Personaje, no_aliado),
-    ( tiene(eric, hacha)
-    ; tiene(eric, encendedor)
+    ( zona_segura(los_bunkeres, dia)
+    ; zona_segura(los_bunkeres, noche)
     ).
