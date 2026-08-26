@@ -1,3 +1,4 @@
+% Base de conocimiento 
 
 superviviente(eric).
 superviviente(timmy).
