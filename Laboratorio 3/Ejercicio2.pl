@@ -2,7 +2,6 @@
 
 % Casos base
 sumar_con_anteriores(1, 1).
-sumar_con_anteriores(0, 0).
 % Codigo
 sumar_con_anteriores(N, Sum) :-
     N > 1,
