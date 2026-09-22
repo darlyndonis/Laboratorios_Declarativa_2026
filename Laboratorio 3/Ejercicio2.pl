@@ -1,6 +1,6 @@
 % Dado un numero N, se debe sumar N con todos los numeros anteriores hasta llegar a 1.
 
-% Casos base
+% Caso base
 sumar_con_anteriores(1, 1).
 % Codigo
 sumar_con_anteriores(N, Sum) :-
